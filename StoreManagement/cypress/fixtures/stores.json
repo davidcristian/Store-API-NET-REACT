@@ -1,0 +1,59 @@
+[
+    {
+        "id": 1,
+        "name": "Store 1",
+        "description": "test description",
+
+        "category": 1,
+        "address": "test address",
+
+        "city": "test city",
+        "state": "test state",
+
+        "zipCode": "test zipCode",
+        "country": "test country",
+
+        "openDate": "2020-01-01T00:00:00.000+00:00",
+        "closeDate": null,
+
+        "storeShifts": []
+    },
+    {
+        "id": 2,
+        "name": "Store 2",
+        "description": "test description",
+
+        "category": 2,
+        "address": "test address",
+
+        "city": "test city",
+        "state": "test state",
+
+        "zipCode": "test zipCode",
+        "country": "test country",
+
+        "openDate": "2019-01-01T00:00:00.000+00:00",
+        "closeDate": null,
+
+        "storeShifts": []
+    },
+    {
+        "id": 3,
+        "name": "Store 1",
+        "description": "test description",
+
+        "category": 3,
+        "address": "test address",
+
+        "city": "test city",
+        "state": "test state",
+
+        "zipCode": "test zipCode",
+        "country": "test country",
+
+        "openDate": "2018-01-01T00:00:00.000+00:00",
+        "closeDate": "2019-01-01T00:00:00.000+00:00",
+
+        "storeShifts": []
+    }
+]

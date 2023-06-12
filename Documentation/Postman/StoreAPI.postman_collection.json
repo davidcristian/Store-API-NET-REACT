@@ -1,0 +1,707 @@
+{
+	"info": {
+		"_postman_id": "4810036e-18d3-4f74-a7fd-4ab10c464234",
+		"name": "StoreAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "StoreEmployee",
+			"item": [
+				{
+					"name": "POST",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"firstName\": \"New FirstName\",\r\n  \"lastName\": \"New LastName\",\r\n  \"gender\": \"Female\",\r\n  \"employmentDate\": \"2023-03-14T06:20:20.950Z\",\r\n  \"terminationDate\": null,\r\n  \"salary\": 999,\r\n  \"storeEmployeeRoleId\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5066/api/storeemployees",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5066",
+							"path": [
+								"api",
+								"storeemployees"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GETID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5066/api/storeemployees/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5066",
+							"path": [
+								"api",
+								"storeemployees",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GETALL",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5066/api/storeemployees",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5066",
+							"path": [
+								"api",
+								"storeemployees"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 1,\r\n  \"firstName\": \"Updated FirstName\",\r\n  \"lastName\": \"Updated LastName\",\r\n  \"gender\": \"Male\",\r\n  \"employmentDate\": \"2023-03-14T06:21:15.713Z\",\r\n  \"terminationDate\": null,\r\n  \"salary\": 9999,\r\n  \"storeEmployeeRoleId\": 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5066/api/storeemployees/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5066",
+							"path": [
+								"api",
+								"storeemployees",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5066/api/storeemployees/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5066",
+							"path": [
+								"api",
+								"storeemployees",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FILTER",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5066/api/storeemployees/Filter?minSalary=3000",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5066",
+							"path": [
+								"api",
+								"storeemployees",
+								"Filter"
+							],
+							"query": [
+								{
+									"key": "minSalary",
+									"value": "3000"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "StoreEmployeeRole",
+			"item": [
+				{
+					"name": "POST",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"new role\",\r\n  \"description\": \"new description\",\r\n  \"roleLevel\": 50\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5066/api/storeemployeeroles",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5066",
+							"path": [
+								"api",
+								"storeemployeeroles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST StoreEmployees",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n  {\r\n    \"firstName\": \"firstName1\",\r\n    \"lastName\": \"lastName1\",\r\n    \"gender\": \"Female\",\r\n    \"employmentDate\": \"2023-03-28T05:34:12.510Z\",\r\n    \"terminationDate\": \"2023-03-28T05:34:12.510Z\",\r\n    \"salary\": 100\r\n  },\r\n  {\r\n    \"firstName\": \"firstName2\",\r\n    \"lastName\": \"lastName2\",\r\n    \"gender\": \"Female\",\r\n    \"employmentDate\": \"2023-03-28T05:34:12.510Z\",\r\n    \"terminationDate\": \"2023-03-28T05:34:12.510Z\",\r\n    \"salary\": 200\r\n  }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5066/api/storeemployeeroles/2/storeemployees",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5066",
+							"path": [
+								"api",
+								"storeemployeeroles",
+								"2",
+								"storeemployees"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GETID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5066/api/storeemployeeroles/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5066",
+							"path": [
+								"api",
+								"storeemployeeroles",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GETALL",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5066/api/storeemployeeroles",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5066",
+							"path": [
+								"api",
+								"storeemployeeroles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 1,\r\n  \"name\": \"updated name\",\r\n  \"description\": \"updated description\",\r\n  \"roleLevel\": 99\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5066/api/storeemployeeroles/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5066",
+							"path": [
+								"api",
+								"storeemployeeroles",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT StoreEmployees",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n  3, 4\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5066/api/storeemployeeroles/2/storeemployees",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5066",
+							"path": [
+								"api",
+								"storeemployeeroles",
+								"2",
+								"storeemployees"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5066/api/storeemployeeroles/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5066",
+							"path": [
+								"api",
+								"storeemployeeroles",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SEARCH",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5066/api/storeemployeeroles/Search?query=train",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5066",
+							"path": [
+								"api",
+								"storeemployeeroles",
+								"Search"
+							],
+							"query": [
+								{
+									"key": "query",
+									"value": "train"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Store",
+			"item": [
+				{
+					"name": "POST",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"new name\",\r\n  \"description\": \"new description\",\r\n  \"category\": \"General\",\r\n  \"address\": \"new address\",\r\n  \"city\": \"new city\",\r\n  \"state\": \"new state\",\r\n  \"zipCode\": \"new zip\",\r\n  \"country\": \"new country\",\r\n  \"openDate\": \"2023-03-14T16:38:27.638Z\",\r\n  \"closeDate\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5066/api/stores",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5066",
+							"path": [
+								"api",
+								"stores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GETID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5066/api/stores/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5066",
+							"path": [
+								"api",
+								"stores",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GETALL",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5066/api/stores",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5066",
+							"path": [
+								"api",
+								"stores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 1,\r\n  \"name\": \"updated name\",\r\n  \"description\": \"updated description\",\r\n  \"category\": \"Food\",\r\n  \"address\": \"updated address\",\r\n  \"city\": \"updated city\",\r\n  \"state\": \"updated state\",\r\n  \"zipCode\": \"updated zip\",\r\n  \"country\": \"updated country\",\r\n  \"openDate\": \"2015-03-14T16:38:38.611Z\",\r\n  \"closeDate\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5066/api/stores/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5066",
+							"path": [
+								"api",
+								"stores",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT StoreShiftEmployees",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"startDate\": \"2023-03-25T17:08:29.036Z\",\r\n  \"endDate\": \"2023-03-25T17:08:29.036Z\",\r\n    \"storeEmployeeIds\": [\r\n    3, 4\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5066/api/stores/2/employees",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5066",
+							"path": [
+								"api",
+								"stores",
+								"2",
+								"employees"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5066/api/stores/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5066",
+							"path": [
+								"api",
+								"stores",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SALARY REPORT",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5066/api/stores/report/salaries",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5066",
+							"path": [
+								"api",
+								"stores",
+								"report",
+								"salaries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "HEADCOUNT REPORT",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5066/api/stores/report/headcount",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5066",
+							"path": [
+								"api",
+								"stores",
+								"report",
+								"headcount"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "StoreShift",
+			"item": [
+				{
+					"name": "POST",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"startDate\": \"2023-03-20T22:18:24.386Z\",\r\n  \"endDate\": \"2023-03-20T22:18:24.386Z\",\r\n  \"storeId\": 2,\r\n  \"storeEmployeeId\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5066/api/storeshifts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5066",
+							"path": [
+								"api",
+								"storeshifts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GETID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5066/api/storeshifts/2/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5066",
+							"path": [
+								"api",
+								"storeshifts",
+								"2",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GETALL",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5066/api/storeshifts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5066",
+							"path": [
+								"api",
+								"storeshifts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"startDate\": \"2015-03-20T22:19:29.428Z\",\r\n  \"endDate\": \"2020-03-20T22:19:29.428Z\",\r\n  \"storeId\": 2,\r\n  \"storeEmployeeId\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5066/api/storeshifts/2/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5066",
+							"path": [
+								"api",
+								"storeshifts",
+								"2",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5066/api/storeshifts/2/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5066",
+							"path": [
+								"api",
+								"storeshifts",
+								"2",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

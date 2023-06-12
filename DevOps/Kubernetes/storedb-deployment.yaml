@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: storedb-deployment
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            app: storedb
+    template:
+        metadata:
+            labels:
+                app: storedb
+        spec:
+            containers:
+                - name: storedb
+                  image: gcr.io/$PROJECT/storedb:latest
+                  ports:
+                      - containerPort: 1433
+                  volumeMounts:
+                      - name: mssql-storage
+                        mountPath: /var/opt/mssql
+            volumes:
+                - name: mssql-storage
+                  persistentVolumeClaim:
+                      claimName: storedb-pvc

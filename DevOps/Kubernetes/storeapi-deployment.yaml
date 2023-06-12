@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: storeapi-deployment
+spec:
+    replicas: 3
+    selector:
+        matchLabels:
+            app: storeapi
+    template:
+        metadata:
+            labels:
+                app: storeapi
+        spec:
+            containers:
+                - name: storeapi
+                  image: gcr.io/$PROJECT/storeapi:latest
+                  ports:
+                      - containerPort: 5000
+                  resources:
+                      requests:
+                          cpu: 500m

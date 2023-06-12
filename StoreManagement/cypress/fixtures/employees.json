@@ -1,0 +1,41 @@
+[
+    {
+        "id": "1",
+        "firstName": "John",
+        "lastName": "Doe",
+
+        "gender": 1,
+
+        "employmentDate": "2015-01-01T00:00:00.000Z",
+        "terminationDate": null,
+        "salary": 1000,
+
+        "storeShifts": [1, 2, 3]
+    },
+    {
+        "id": "2",
+        "firstName": "Jane",
+        "lastName": "Smith",
+
+        "gender": 0,
+
+        "employmentDate": "2014-01-01T00:00:00.000Z",
+        "terminationDate": null,
+        "salary": 2000,
+
+        "storeShifts": [1, 2]
+    },
+    {
+        "id": "3",
+        "firstName": "Joe",
+        "lastName": "Black",
+
+        "gender": 3,
+
+        "employmentDate": "2013-01-01T00:00:00.000Z",
+        "terminationDate": "2014-01-01T00:00:00.000Z",
+        "salary": 3000,
+
+        "storeShifts": [1, 2, 3, 4]
+    }
+]

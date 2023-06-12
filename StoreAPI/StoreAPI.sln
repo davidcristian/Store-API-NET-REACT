@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33414.496
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StoreAPI", "StoreAPI\StoreAPI.csproj", "{E529D1D4-B61E-4ED1-A295-1BD7E9F6FB24}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreAPITest", "StoreAPITest\StoreAPITest.csproj", "{32A88570-A47E-4D5E-A310-9CBD00F1C57B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E529D1D4-B61E-4ED1-A295-1BD7E9F6FB24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E529D1D4-B61E-4ED1-A295-1BD7E9F6FB24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E529D1D4-B61E-4ED1-A295-1BD7E9F6FB24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E529D1D4-B61E-4ED1-A295-1BD7E9F6FB24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32A88570-A47E-4D5E-A310-9CBD00F1C57B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32A88570-A47E-4D5E-A310-9CBD00F1C57B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32A88570-A47E-4D5E-A310-9CBD00F1C57B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32A88570-A47E-4D5E-A310-9CBD00F1C57B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1541403B-4A45-455E-BE14-C2B40E138EE0}
+	EndGlobalSection
+EndGlobal

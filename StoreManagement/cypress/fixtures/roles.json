@@ -1,0 +1,29 @@
+[
+    {
+        "id": 1,
+        "name": "Role 1",
+        "description": "test description",
+    
+        "roleLevel": 3,
+    
+        "storeEmployees": []
+    },
+    {
+        "id": 2,
+        "name": "Role 2",
+        "description": "test description",
+    
+        "roleLevel": 5,
+    
+        "storeEmployees": []
+    },
+    {
+        "id": 3,
+        "name": "Role 3",
+        "description": "test description",
+    
+        "roleLevel": 7,
+    
+        "storeEmployees": []
+    }
+]

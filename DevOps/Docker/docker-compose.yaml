@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  storeapi:
+    build:
+      context: ../../StoreAPI/StoreAPI
+      dockerfile: ../../DevOps/Docker/Dockerfile.storeapi
+    container_name: storeapi
+    ports:
+      - 5066:5066
+    networks:
+      - storenetwork
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://*:5066
+    depends_on:
+      - storedb
+
+  storedb:
+    build:
+      context: .
+      dockerfile: Dockerfile.storedb
+    container_name: storedb
+    ports:
+      - 1433:1433
+    networks:
+      - storenetwork
+    volumes:
+      - /var/opt/mssql:/var/opt/mssql
+
+networks:
+  storenetwork:
+    name: storenetwork
+    driver: bridge
