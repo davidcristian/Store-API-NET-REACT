@@ -21,6 +21,13 @@
             <stringProp name="50547">300</stringProp>
             <stringProp name="48">0</stringProp>
           </collectionProp>
+          <collectionProp name="1157810525">
+            <stringProp name="56">8</stringProp>
+            <stringProp name="1567">10</stringProp>
+            <stringProp name="48">0</stringProp>
+            <stringProp name="1567">10</stringProp>
+            <stringProp name="48">0</stringProp>
+          </collectionProp>
           <collectionProp name="2084459580">
             <stringProp name="56">8</stringProp>
             <stringProp name="1629">30</stringProp>
@@ -28,47 +35,40 @@
             <stringProp name="1567">10</stringProp>
             <stringProp name="48">0</stringProp>
           </collectionProp>
-          <collectionProp name="-1156174435">
-            <stringProp name="56">8</stringProp>
-            <stringProp name="1722">60</stringProp>
-            <stringProp name="48">0</stringProp>
-            <stringProp name="1567">10</stringProp>
-            <stringProp name="48">0</stringProp>
+          <collectionProp name="803516313">
+            <stringProp name="1668">48</stringProp>
+            <stringProp name="1660">40</stringProp>
+            <stringProp name="1598">20</stringProp>
+            <stringProp name="1629">30</stringProp>
+            <stringProp name="1598">20</stringProp>
           </collectionProp>
-          <collectionProp name="-124988761">
-            <stringProp name="56">8</stringProp>
-            <stringProp name="1815">90</stringProp>
-            <stringProp name="48">0</stringProp>
+          <collectionProp name="2146122764">
+            <stringProp name="1699">58</stringProp>
+            <stringProp name="48656">110</stringProp>
             <stringProp name="1567">10</stringProp>
-            <stringProp name="48">0</stringProp>
+            <stringProp name="1629">30</stringProp>
+            <stringProp name="1567">10</stringProp>
           </collectionProp>
-          <collectionProp name="-1889695312">
+          <collectionProp name="-788936746">
+            <stringProp name="1761">78</stringProp>
+            <stringProp name="48811">160</stringProp>
+            <stringProp name="1567">10</stringProp>
+            <stringProp name="1629">30</stringProp>
+            <stringProp name="1567">10</stringProp>
+          </collectionProp>
+          <collectionProp name="-1442654014">
             <stringProp name="1823">98</stringProp>
-            <stringProp name="48687">120</stringProp>
-            <stringProp name="48">0</stringProp>
-            <stringProp name="1567">10</stringProp>
-            <stringProp name="1629">30</stringProp>
-          </collectionProp>
-          <collectionProp name="-835362031">
-            <stringProp name="1823">98</stringProp>
-            <stringProp name="48780">150</stringProp>
-            <stringProp name="48">0</stringProp>
-            <stringProp name="1567">10</stringProp>
-            <stringProp name="1629">30</stringProp>
-          </collectionProp>
-          <collectionProp name="-84286350">
-            <stringProp name="48912">198</stringProp>
-            <stringProp name="48873">180</stringProp>
-            <stringProp name="48">0</stringProp>
-            <stringProp name="1567">10</stringProp>
-            <stringProp name="1629">30</stringProp>
-          </collectionProp>
-          <collectionProp name="662589796">
-            <stringProp name="49873">298</stringProp>
             <stringProp name="49617">210</stringProp>
-            <stringProp name="48">0</stringProp>
-            <stringProp name="1722">60</stringProp>
             <stringProp name="1567">10</stringProp>
+            <stringProp name="1629">30</stringProp>
+            <stringProp name="1567">10</stringProp>
+          </collectionProp>
+          <collectionProp name="-235146875">
+            <stringProp name="1823">98</stringProp>
+            <stringProp name="49772">260</stringProp>
+            <stringProp name="1567">10</stringProp>
+            <stringProp name="1629">30</stringProp>
+            <stringProp name="48">0</stringProp>
           </collectionProp>
         </collectionProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
@@ -82,7 +82,7 @@
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">sdistoreapi.duckdns.org</stringProp>
+          <stringProp name="HTTPSampler.domain">sdistoreapi.ddns.net</stringProp>
           <stringProp name="HTTPSampler.port"></stringProp>
           <stringProp name="HTTPSampler.protocol"></stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>

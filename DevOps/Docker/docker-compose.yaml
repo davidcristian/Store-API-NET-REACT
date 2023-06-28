@@ -7,12 +7,12 @@ services:
       dockerfile: ../../DevOps/Docker/Dockerfile.storeapi
     container_name: storeapi
     ports:
-      - 5066:5066
+      - 5000:5000
     networks:
       - storenetwork
     environment:
       - ASPNETCORE_ENVIRONMENT=Production
-      - ASPNETCORE_URLS=http://*:5066
+      - ASPNETCORE_URLS=http://*:5000
     depends_on:
       - storedb
 

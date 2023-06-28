@@ -17,7 +17,7 @@ RUN chmod +x /db-entrypoint.sh
 # Set environment variables
 ENV ACCEPT_EULA=Y
 ENV SA_PASSWORD=@dm1n123
-ENV MSSQL_PID=Developer
+ENV MSSQL_PID=Express
 
 # Set the entrypoint for the container
 ENTRYPOINT ["/db-entrypoint.sh"]
