@@ -74,13 +74,17 @@ const Paginator: React.FC<PaginatorProps> = ({
         setPageIndex(pageNumber - 1);
     }
 
-    const displayedPages = isSmallScreen
+    let displayedPages = isSmallScreen
         ? 3
         : isMediumScreen
         ? 5
         : isLargeScreen
         ? 7
         : 9;
+
+    if (totalPages < displayedPages) {
+        displayedPages = totalPages;
+    }
 
     let startPage = pageIndex - Math.floor((displayedPages - 3) / 2) + 1;
     let endPage = startPage + displayedPages - 3;
@@ -144,7 +148,7 @@ const Paginator: React.FC<PaginatorProps> = ({
             ))}
             {endPage < totalPages && (
                 <>
-                    <span>...</span>
+                    {totalPages != 1 && <span>...</span>}
                     <Button
                         variant={
                             pageIndex === totalPages - 1
