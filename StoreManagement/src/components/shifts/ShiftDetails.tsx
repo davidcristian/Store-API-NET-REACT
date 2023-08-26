@@ -15,16 +15,16 @@ import axios, { AxiosError } from "axios";
 import { useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
-import { isAuthorized, useAuthToken } from "../../auth";
-import { BACKEND_API_URL, formatDate } from "../../constants";
+import { SnackbarContext } from "../../contexts/SnackbarContext";
 import { StoreShift } from "../../models/StoreShift";
-import { SnackbarContext } from "../SnackbarContext";
+import { isAuthorized, useAuthToken } from "../../utils/authentication";
+import { BACKEND_API_URL, formatDate } from "../../utils/constants";
 
 export const ShiftDetails = () => {
   const openSnackbar = useContext(SnackbarContext);
   const { getAuthToken } = useAuthToken();
 
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState<boolean>(true);
   const { storeId, employeeId } = useParams();
 
   const [shift, setShift] = useState<StoreShift>();

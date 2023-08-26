@@ -15,17 +15,17 @@ import axios, { AxiosError } from "axios";
 import { useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
-import { isAuthorized, useAuthToken } from "../../auth";
-import { BACKEND_API_URL } from "../../constants";
+import { SnackbarContext } from "../../contexts/SnackbarContext";
 import { EmployeeRole } from "../../models/EmployeeRole";
-import { SnackbarContext } from "../SnackbarContext";
+import { isAuthorized, useAuthToken } from "../../utils/authentication";
+import { BACKEND_API_URL } from "../../utils/constants";
 
 export const RoleDetails = () => {
   const openSnackbar = useContext(SnackbarContext);
   const { getAuthToken } = useAuthToken();
 
   const { roleId } = useParams();
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState<boolean>(true);
 
   const [role, setRole] = useState<EmployeeRole>();
 

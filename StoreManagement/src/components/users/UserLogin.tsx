@@ -13,10 +13,10 @@ import axios, { AxiosError } from "axios";
 import { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-import { logOut, setAuthToken, useAuthToken } from "../../auth";
-import { BACKEND_API_URL } from "../../constants";
+import { SnackbarContext } from "../../contexts/SnackbarContext";
 import { User } from "../../models/User";
-import { SnackbarContext } from "../SnackbarContext";
+import { logOut, setAuthToken, useAuthToken } from "../../utils/authentication";
+import { BACKEND_API_URL } from "../../utils/constants";
 
 export const UserLogin = () => {
   const navigate = useNavigate();

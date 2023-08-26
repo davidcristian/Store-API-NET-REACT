@@ -18,11 +18,11 @@ import axios, { AxiosError } from "axios";
 import { useContext, useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 
-import { useAuthToken } from "../../auth";
-import { BACKEND_API_URL, getEnumValues } from "../../constants";
+import { SnackbarContext } from "../../contexts/SnackbarContext";
 import { User } from "../../models/User";
 import { AccessLevel } from "../../models/User";
-import { SnackbarContext } from "../SnackbarContext";
+import { useAuthToken } from "../../utils/authentication";
+import { BACKEND_API_URL, getEnumValues } from "../../utils/constants";
 
 export const UserUpdate = () => {
   const navigate = useNavigate();
@@ -30,7 +30,7 @@ export const UserUpdate = () => {
   const { getAuthToken } = useAuthToken();
 
   const { userId } = useParams<{ userId: string }>();
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState<boolean>(true);
 
   const [user, setUser] = useState<User>({
     name: "",

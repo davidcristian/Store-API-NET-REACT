@@ -2,8 +2,8 @@ import jwt_decode from "jwt-decode";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { SnackbarContext } from "./components/SnackbarContext";
-import { AccessLevel, User } from "./models/User";
+import { SnackbarContext } from "../contexts/SnackbarContext";
+import { AccessLevel, User } from "../models/User";
 
 interface JwtPayload {
   unique_name: string; // Name
@@ -67,9 +67,10 @@ export const useAuthToken = () => {
 
     const decodedToken = jwt_decode<JwtPayload>(token);
     if (decodedToken.exp * 1000 < Date.now()) {
+      logOut();
       openSnackbar("warning", "Your session has expired. Please log in again.");
-      navigate("/users/login");
 
+      navigate("/users/login");
       return null;
     }
 

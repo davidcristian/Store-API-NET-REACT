@@ -12,9 +12,9 @@ import axios, { AxiosError } from "axios";
 import { useContext } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 
-import { useAuthToken } from "../../auth";
-import { BACKEND_API_URL } from "../../constants";
-import { SnackbarContext } from "../SnackbarContext";
+import { SnackbarContext } from "../../contexts/SnackbarContext";
+import { useAuthToken } from "../../utils/authentication";
+import { BACKEND_API_URL } from "../../utils/constants";
 
 export const UserDelete = () => {
   const navigate = useNavigate();

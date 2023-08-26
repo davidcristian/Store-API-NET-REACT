@@ -15,30 +15,36 @@ import { useContext, useState } from "react";
 import React from "react";
 import { Link } from "react-router-dom";
 
-import { getAccount, updatePref, useAuthToken } from "../../auth";
-import { BACKEND_API_URL } from "../../constants";
+import { SnackbarContext } from "../../contexts/SnackbarContext";
 import { AccessLevel } from "../../models/User";
-import { SnackbarContext } from "../SnackbarContext";
+import {
+  getAccount,
+  updatePref,
+  useAuthToken,
+} from "../../utils/authentication";
+import { BACKEND_API_URL } from "../../utils/constants";
 
 export const AdminPanel = () => {
   const openSnackbar = useContext(SnackbarContext);
   const { getAuthToken } = useAuthToken();
 
-  const [preferenceText, setPreferenceText] = useState(
+  const [preferenceText, setPreferenceText] = useState<string>(
     getAccount()?.userProfile?.pagePreference?.toString() ?? ""
   );
   const defaultCount = 1_000;
 
-  const [rolesText, setRolesText] = useState(String(defaultCount));
-  const [employeesText, setEmployeesText] = useState(String(defaultCount));
-  const [storesText, setStoresText] = useState(String(defaultCount));
-  const [shiftsText, setShiftsText] = useState(String(defaultCount));
+  const [rolesText, setRolesText] = useState<string>(String(defaultCount));
+  const [employeesText, setEmployeesText] = useState<string>(
+    String(defaultCount)
+  );
+  const [storesText, setStoresText] = useState<string>(String(defaultCount));
+  const [shiftsText, setShiftsText] = useState<string>(String(defaultCount));
 
-  const [loadingPreference, setLoadingPreference] = useState(false);
-  const [loadingRoles, setLoadingRoles] = useState(false);
-  const [loadingEmployees, setLoadingEmployees] = useState(false);
-  const [loadingStores, setLoadingStores] = useState(false);
-  const [loadingShifts, setLoadingShifts] = useState(false);
+  const [loadingPreference, setLoadingPreference] = useState<boolean>(false);
+  const [loadingRoles, setLoadingRoles] = useState<boolean>(false);
+  const [loadingEmployees, setLoadingEmployees] = useState<boolean>(false);
+  const [loadingStores, setLoadingStores] = useState<boolean>(false);
+  const [loadingShifts, setLoadingShifts] = useState<boolean>(false);
 
   const isWorking =
     loadingPreference ||

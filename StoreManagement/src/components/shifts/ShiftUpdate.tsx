@@ -14,10 +14,10 @@ import axios, { AxiosError } from "axios";
 import { useContext, useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 
-import { useAuthToken } from "../../auth";
-import { BACKEND_API_URL } from "../../constants";
+import { SnackbarContext } from "../../contexts/SnackbarContext";
 import { StoreShift } from "../../models/StoreShift";
-import { SnackbarContext } from "../SnackbarContext";
+import { useAuthToken } from "../../utils/authentication";
+import { BACKEND_API_URL } from "../../utils/constants";
 
 export const ShiftUpdate = () => {
   const navigate = useNavigate();
@@ -25,10 +25,10 @@ export const ShiftUpdate = () => {
   const { getAuthToken } = useAuthToken();
 
   const { storeId, employeeId } = useParams();
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState<boolean>(true);
 
-  const [employeeName, setEmployeeName] = useState("");
-  const [storeName, setStoreName] = useState("");
+  const [employeeName, setEmployeeName] = useState<string>("");
+  const [storeName, setStoreName] = useState<string>("");
 
   const [shift, setShift] = useState<StoreShift>({
     startDate: "",

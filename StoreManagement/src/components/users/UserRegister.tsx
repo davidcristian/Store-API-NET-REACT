@@ -17,12 +17,16 @@ import axios, { AxiosError } from "axios";
 import { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-import { logOut, useAuthToken } from "../../auth";
-import { BACKEND_API_URL, formatDate, getEnumValues } from "../../constants";
+import { SnackbarContext } from "../../contexts/SnackbarContext";
 import { Gender } from "../../models/Employee";
 import { MaritalStatus } from "../../models/UserProfile";
 import { UserRegisterDTO } from "../../models/UserRegisterDTO";
-import { SnackbarContext } from "../SnackbarContext";
+import { logOut, useAuthToken } from "../../utils/authentication";
+import {
+  BACKEND_API_URL,
+  formatDate,
+  getEnumValues,
+} from "../../utils/constants";
 
 export const UserRegister = () => {
   const navigate = useNavigate();

@@ -11,7 +11,7 @@ import {
 import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-import { SnackbarContext } from "../SnackbarContext";
+import { SnackbarContext } from "../../contexts/SnackbarContext";
 
 export const UserAdd = () => {
   const navigate = useNavigate();
@@ -50,7 +50,7 @@ export const UserAdd = () => {
           </Box>
 
           <p style={{ marginBottom: 0, textAlign: "center" }}>
-            This page should not be accessible.
+            Users cannot be added from the web interface!
           </p>
         </CardContent>
         <CardActions

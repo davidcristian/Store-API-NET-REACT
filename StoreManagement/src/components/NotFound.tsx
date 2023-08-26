@@ -11,22 +11,22 @@ import {
 import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-import { SnackbarContext } from "../../contexts/SnackbarContext";
+import { SnackbarContext } from "../contexts/SnackbarContext";
 
-export const ShiftAdd = () => {
+export const NotFound = () => {
   const navigate = useNavigate();
   const openSnackbar = useContext(SnackbarContext);
 
   const handleGoButton = async (event: { preventDefault: () => void }) => {
     event.preventDefault();
-    openSnackbar("info", "Navigating to shifts...");
-    navigate("/shifts");
+    openSnackbar("info", "Going home...");
+    navigate("/");
   };
 
   const handleBackButton = (event: { preventDefault: () => void }) => {
     event.preventDefault();
-    openSnackbar("info", "Navigating to shifts...");
-    navigate("/shifts");
+    openSnackbar("info", "Going home...");
+    navigate("/");
   };
 
   return (
@@ -34,7 +34,7 @@ export const ShiftAdd = () => {
       <Card sx={{ p: 2 }}>
         <CardContent>
           <Box display="flex" alignItems="flex-start">
-            <IconButton component={Link} sx={{ mr: 3 }} to={`/shifts`}>
+            <IconButton component={Link} sx={{ mr: 3 }} to={`/`}>
               <ArrowBackIcon />
             </IconButton>
             <h1
@@ -45,12 +45,12 @@ export const ShiftAdd = () => {
                 marginLeft: -64,
               }}
             >
-              Add Shift
+              404
             </h1>
           </Box>
 
           <p style={{ marginBottom: 0, textAlign: "center" }}>
-            Use the details page of a store or an employee to add a shift!
+            This page does not exist.
           </p>
         </CardContent>
         <CardActions
@@ -75,7 +75,7 @@ export const ShiftAdd = () => {
             sx={{ width: 100 }}
             onClick={handleBackButton}
           >
-            Back
+            Home
           </Button>
         </CardActions>
       </Card>

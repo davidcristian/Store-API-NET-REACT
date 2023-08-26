@@ -21,11 +21,11 @@ import { useCallback, useContext, useEffect, useRef, useState } from "react";
 import React from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 
-import { useAuthToken } from "../../auth";
-import { BACKEND_API_URL, getEnumValues } from "../../constants";
+import { SnackbarContext } from "../../contexts/SnackbarContext";
 import { Employee, Gender } from "../../models/Employee";
 import { EmployeeRole } from "../../models/EmployeeRole";
-import { SnackbarContext } from "../SnackbarContext";
+import { useAuthToken } from "../../utils/authentication";
+import { BACKEND_API_URL, getEnumValues } from "../../utils/constants";
 
 export const EmployeeUpdate = () => {
   const navigate = useNavigate();
@@ -33,7 +33,7 @@ export const EmployeeUpdate = () => {
   const { getAuthToken } = useAuthToken();
 
   const { employeeId } = useParams<{ employeeId: string }>();
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState<boolean>(true);
 
   const [roles, setRoles] = useState<EmployeeRole[]>([]);
   const [employee, setEmployee] = useState<Employee>({

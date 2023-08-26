@@ -14,10 +14,10 @@ import axios, { AxiosError } from "axios";
 import { useContext, useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 
-import { useAuthToken } from "../../auth";
-import { BACKEND_API_URL } from "../../constants";
+import { SnackbarContext } from "../../contexts/SnackbarContext";
 import { EmployeeRole } from "../../models/EmployeeRole";
-import { SnackbarContext } from "../SnackbarContext";
+import { useAuthToken } from "../../utils/authentication";
+import { BACKEND_API_URL } from "../../utils/constants";
 
 export const RoleUpdate = () => {
   const navigate = useNavigate();
@@ -25,7 +25,7 @@ export const RoleUpdate = () => {
   const { getAuthToken } = useAuthToken();
 
   const { roleId } = useParams<{ roleId: string }>();
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState<boolean>(true);
 
   const [role, setRole] = useState<EmployeeRole>({
     name: "",

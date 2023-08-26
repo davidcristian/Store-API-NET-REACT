@@ -15,6 +15,7 @@ export const AppHome = () => {
             textAlign: "center",
             fontSize: "4rem",
             userSelect: "none",
+            marginTop: "2rem",
           }}
         >
           Welcome

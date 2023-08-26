@@ -13,10 +13,10 @@ import axios, { AxiosError } from "axios";
 import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-import { useAuthToken } from "../../auth";
-import { BACKEND_API_URL } from "../../constants";
+import { SnackbarContext } from "../../contexts/SnackbarContext";
 import { EmployeeRole } from "../../models/EmployeeRole";
-import { SnackbarContext } from "../SnackbarContext";
+import { useAuthToken } from "../../utils/authentication";
+import { BACKEND_API_URL } from "../../utils/constants";
 
 export const RoleAdd = () => {
   const navigate = useNavigate();

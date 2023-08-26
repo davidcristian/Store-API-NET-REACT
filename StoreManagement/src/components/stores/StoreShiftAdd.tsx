@@ -17,12 +17,12 @@ import { useCallback, useContext, useEffect, useState } from "react";
 import React from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 
-import { useAuthToken } from "../../auth";
-import { BACKEND_API_URL } from "../../constants";
+import { SnackbarContext } from "../../contexts/SnackbarContext";
 import { Employee } from "../../models/Employee";
 import { Store } from "../../models/Store";
 import { StoreShift } from "../../models/StoreShift";
-import { SnackbarContext } from "../SnackbarContext";
+import { useAuthToken } from "../../utils/authentication";
+import { BACKEND_API_URL } from "../../utils/constants";
 
 export const StoreShiftAdd = () => {
   const navigate = useNavigate();
@@ -30,9 +30,9 @@ export const StoreShiftAdd = () => {
   const { getAuthToken } = useAuthToken();
 
   const { storeId } = useParams();
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState<boolean>(true);
 
-  const [storeName, setStoreName] = useState("");
+  const [storeName, setStoreName] = useState<string>("");
   const [employees, setEmployees] = useState<Employee[]>([]);
 
   const [shift, setShift] = useState<StoreShift>({

@@ -30,13 +30,13 @@ import Avatar from "@mui/material/Avatar";
 import { MouseEvent, useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
-import { getAccount, logOut } from "../auth";
+import { SnackbarContext } from "../contexts/SnackbarContext";
 import { AccessLevel } from "../models/User";
-import { SnackbarContext } from "./SnackbarContext";
+import { getAccount, logOut } from "../utils/authentication";
 
 export const AppMenu = () => {
   const theme = useTheme();
-  const isXlScreen = useMediaQuery(theme.breakpoints.down("xl"));
+  const breaksDownXl = useMediaQuery(theme.breakpoints.down("xl"));
 
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const [whichMenu, setWhichMenu] = useState<"navigation" | "profile">(
@@ -98,7 +98,7 @@ export const AppMenu = () => {
     <Box sx={{ flexGrow: 1, position: "sticky", top: "0", zIndex: "9" }}>
       <AppBar position="static" sx={{ marginBottom: "20px" }}>
         <Toolbar>
-          {isXlScreen ? (
+          {breaksDownXl ? (
             <>
               <IconButton
                 size="large"
@@ -219,8 +219,10 @@ export const AppMenu = () => {
 
               <MenuItem
                 onClick={(e) => {
-                  accountNameClick(e);
                   handleClose();
+                  setTimeout(() => {
+                    accountNameClick(e);
+                  }, 250);
                 }}
               >
                 <ListItemIcon>
@@ -247,7 +249,14 @@ export const AppMenu = () => {
               )}
 
               {getAccount() !== undefined && (
-                <MenuItem onClick={logOutClick}>
+                <MenuItem
+                  onClick={(e) => {
+                    handleClose();
+                    setTimeout(() => {
+                      logOutClick(e);
+                    }, 250);
+                  }}
+                >
                   <ListItemIcon>
                     <LogoutIcon fontSize="small" />
                   </ListItemIcon>

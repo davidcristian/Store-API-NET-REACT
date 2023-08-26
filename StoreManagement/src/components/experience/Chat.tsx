@@ -16,8 +16,8 @@ import { useContext, useEffect, useRef, useState } from "react";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-import { BACKEND_API_URL } from "../constants";
-import { SnackbarContext } from "./SnackbarContext";
+import { SnackbarContext } from "../../contexts/SnackbarContext";
+import { BACKEND_API_URL } from "../../utils/constants";
 
 export const Chat = () => {
   const navigate = useNavigate();
@@ -99,6 +99,7 @@ export const Chat = () => {
   };
 
   const goHome = () => {
+    openSnackbar("info", "Going home...");
     navigate("/");
   };
 

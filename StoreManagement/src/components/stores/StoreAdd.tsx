@@ -17,10 +17,10 @@ import axios, { AxiosError } from "axios";
 import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-import { useAuthToken } from "../../auth";
-import { BACKEND_API_URL, getEnumValues } from "../../constants";
+import { SnackbarContext } from "../../contexts/SnackbarContext";
 import { Store, StoreCategory } from "../../models/Store";
-import { SnackbarContext } from "../SnackbarContext";
+import { useAuthToken } from "../../utils/authentication";
+import { BACKEND_API_URL, getEnumValues } from "../../utils/constants";
 
 export const StoreAdd = () => {
   const navigate = useNavigate();

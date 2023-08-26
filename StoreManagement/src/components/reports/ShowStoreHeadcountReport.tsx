@@ -1,183 +1,57 @@
-import {
-  Card,
-  CardContent,
-  CircularProgress,
-  Container,
-  Grid,
-  Paper,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-  Typography,
-  useMediaQuery,
-  useTheme,
-} from "@mui/material";
-import axios from "axios";
-import { useContext, useEffect, useState } from "react";
+import { useMediaQuery, useTheme } from "@mui/material";
 
-import { getAccount, useAuthToken } from "../../auth";
-import { BACKEND_API_URL } from "../../constants";
+import { DataEntry } from "../../models/DataEntry";
 import { StoreCategory } from "../../models/Store";
 import { StoreHeadcountReport } from "../../models/StoreHeadcountReport";
-import Paginator from "../Paginator";
-import { SnackbarContext } from "../SnackbarContext";
+import { Header } from "../../models/TableHeader";
+import DataView from "../generic/DataView";
 
 export const ShowStoreHeadcountReport = () => {
-  const openSnackbar = useContext(SnackbarContext);
-  const { getAuthToken } = useAuthToken();
-
-  const [loading, setLoading] = useState(true);
-  const [stores, setStores] = useState([]);
-
-  const [pageSize] = useState(getAccount()?.userProfile?.pagePreference ?? 5);
-  const [pageIndex, setPageIndex] = useState(0);
-
   const theme = useTheme();
-  const isMediumScreen = useMediaQuery(theme.breakpoints.down("md"));
-  const isLargeScreen = useMediaQuery(theme.breakpoints.down("lg"));
+  const breaksDownLg = useMediaQuery(theme.breakpoints.down("lg"));
 
   const headers = [
     { text: "#", hide: false },
     { text: "Name", hide: false },
-    { text: "Description", hide: isLargeScreen },
+    { text: "Description", hide: breaksDownLg },
     { text: "Category", hide: false },
     { text: "Headcount", hide: false },
-  ];
+  ] as Header[];
 
-  const fetchStores = async () => {
-    setLoading(true);
-    try {
-      await axios
-        .get<[]>(
-          `${BACKEND_API_URL}/stores/report/headcount/${pageIndex}/${pageSize}`,
-          {
-            headers: {
-              Authorization: `Bearer ${getAuthToken()}`,
-            },
-          }
-        )
-        .then((response) => {
-          const stores = response.data;
-          setStores(stores);
-          setLoading(false);
-        })
-        .catch((reason) => {
-          console.log(reason.message);
-          openSnackbar(
-            "error",
-            "Failed to fetch stores!\n" +
-              (String(reason.response?.data).length > 255
-                ? reason.message
-                : reason.response?.data)
-          );
-        });
-    } catch (error) {
-      console.log(error);
-      openSnackbar("error", "Failed to fetch stores due to an unknown error!");
-    }
-  };
+  const tableData = [
+    { render: (store) => store.name },
+    { render: (store) => store.description },
+    { render: (store) => StoreCategory[store.category] },
+    { render: (store) => store.headcount },
+  ] as DataEntry<StoreHeadcountReport>[];
 
-  useEffect(() => {
-    fetchStores();
-  }, [pageIndex, pageSize]);
+  const cardData = [
+    { isTitle: true, render: (store) => store.name },
+    {
+      prefix: "Category: ",
+      render: (store) => StoreCategory[store.category],
+    },
+    {
+      prefix: "Headcount: ",
+      render: (store) => store.headcount,
+    },
+  ] as DataEntry<StoreHeadcountReport>[];
 
   return (
-    <Container>
-      <h1
-        style={{
-          paddingTop: 26,
-          marginBottom: 32,
-          textAlign: "center",
-        }}
-      >
-        Stores ordered in descending order by the number of employees
-      </h1>
-      {loading && <CircularProgress />}
-      {!loading && stores.length === 0 && <div>No stores found!</div>}
-      {!loading &&
-        stores.length > 0 &&
-        (isMediumScreen ? (
-          <Grid container spacing={3}>
-            {stores.map((store: StoreHeadcountReport) => (
-              <Grid item xs={12} sm={6} md={4} key={store.id}>
-                <Card>
-                  <CardContent>
-                    <Typography variant="h6" component="div">
-                      {store.name}
-                    </Typography>
-                    <Typography color="text.secondary">
-                      {"Category: "}
-                      {StoreCategory[store.category]}
-                    </Typography>
-                    <Typography color="text.secondary">
-                      Headcount: {store.headcount}
-                    </Typography>
-                  </CardContent>
-                </Card>
-              </Grid>
-            ))}
-          </Grid>
-        ) : (
-          <TableContainer component={Paper}>
-            <Table sx={{ minWidth: 0 }} aria-label="simple table">
-              <TableHead>
-                <TableRow>
-                  {headers.map((header, i) => {
-                    if (header.hide) {
-                      return null;
-                    }
-                    return (
-                      <TableCell
-                        key={i}
-                        style={{ userSelect: "none" }}
-                        align="left"
-                      >
-                        {header.text}
-                      </TableCell>
-                    );
-                  })}
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                {stores.map((store: StoreHeadcountReport, index) => {
-                  const storeData = [
-                    pageIndex * pageSize + index + 1,
-                    store.name,
-                    store.description,
-                    StoreCategory[store.category],
-                    store.headcount,
-                  ];
-                  return (
-                    <TableRow key={store.id}>
-                      {storeData.map((data, i) => {
-                        const header = headers[i];
-                        if (header.hide) {
-                          return null;
-                        }
-                        return (
-                          <TableCell key={i} align="left">
-                            {data}
-                          </TableCell>
-                        );
-                      })}
-                    </TableRow>
-                  );
-                })}
-              </TableBody>
-            </Table>
-          </TableContainer>
-        ))}
-      {!loading && stores.length > 0 && (
-        <Paginator
-          route="stores/report/headcount"
-          pageSize={pageSize}
-          pageIndex={pageIndex}
-          setPageIndex={setPageIndex}
-        />
-      )}
-    </Container>
+    <DataView<StoreHeadcountReport>
+      tableHeaders={headers}
+      tableData={tableData}
+      cardData={cardData}
+      singularWord="store"
+      pluralWord="stores"
+      webRoute="stores"
+      dataRoute="stores/report/headcount"
+      titleText={
+        "Stores ordered in descending order by the number of employees"
+      }
+      addControls={false}
+      allowCreate={false}
+      showUser={false}
+    ></DataView>
   );
 };

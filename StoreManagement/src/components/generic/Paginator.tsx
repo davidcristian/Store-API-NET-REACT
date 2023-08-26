@@ -2,9 +2,9 @@ import { Button, useMediaQuery, useTheme } from "@mui/material";
 import axios, { AxiosError } from "axios";
 import React, { useContext, useEffect, useState } from "react";
 
-import { useAuthToken } from "../auth";
-import { BACKEND_API_URL } from "../constants";
-import { SnackbarContext } from "./SnackbarContext";
+import { SnackbarContext } from "../../contexts/SnackbarContext";
+import { useAuthToken } from "../../utils/authentication";
+import { BACKEND_API_URL } from "../../utils/constants";
 
 interface PaginatorProps {
   route: string;
@@ -24,13 +24,14 @@ const Paginator: React.FC<PaginatorProps> = ({
   const openSnackbar = useContext(SnackbarContext);
   const { getAuthToken } = useAuthToken();
 
-  const [, setLoading] = useState(true);
-  const [totalPages, setTotalPages] = useState(999999);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [totalPages, setTotalPages] = useState<number>(999999);
+  const placeholderValue = "...........";
 
   const theme = useTheme();
-  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
-  const isMediumScreen = useMediaQuery(theme.breakpoints.down("md"));
-  const isLargeScreen = useMediaQuery(theme.breakpoints.down("lg"));
+  const breaksDownSm = useMediaQuery(theme.breakpoints.down("sm"));
+  const breaksDownMd = useMediaQuery(theme.breakpoints.down("md"));
+  const breaksDownLg = useMediaQuery(theme.breakpoints.down("lg"));
 
   const fetchPageCount = async () => {
     setLoading(true);
@@ -44,7 +45,10 @@ const Paginator: React.FC<PaginatorProps> = ({
         .then((response) => {
           const data = response.data;
           setTotalPages(data);
-          setLoading(false);
+
+          setTimeout(() => {
+            setLoading(false);
+          }, 250);
         })
         .catch((reason: AxiosError) => {
           console.log(reason.message);
@@ -73,11 +77,11 @@ const Paginator: React.FC<PaginatorProps> = ({
     setPageIndex(pageNumber - 1);
   }
 
-  let displayedPages = isSmallScreen
+  let displayedPages = breaksDownSm
     ? 3
-    : isMediumScreen
+    : breaksDownMd
     ? 5
-    : isLargeScreen
+    : breaksDownLg
     ? 7
     : 9;
 
@@ -154,7 +158,7 @@ const Paginator: React.FC<PaginatorProps> = ({
               marginRight: 8,
             }}
           >
-            {totalPages}
+            {loading ? placeholderValue : totalPages}
           </Button>
         </>
       )}

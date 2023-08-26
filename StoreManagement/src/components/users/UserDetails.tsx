@@ -17,22 +17,26 @@ import { useContext, useEffect, useState } from "react";
 import React from "react";
 import { Link, useParams } from "react-router-dom";
 
-import { getAccount, updatePref, useAuthToken } from "../../auth";
-import { BACKEND_API_URL, formatDate } from "../../constants";
+import { SnackbarContext } from "../../contexts/SnackbarContext";
 import { Gender } from "../../models/Employee";
 import { AccessLevel, User } from "../../models/User";
 import { MaritalStatus } from "../../models/UserProfile";
-import { SnackbarContext } from "../SnackbarContext";
+import {
+  getAccount,
+  updatePref,
+  useAuthToken,
+} from "../../utils/authentication";
+import { BACKEND_API_URL, formatDate } from "../../utils/constants";
 
 export const UserDetails = () => {
   const openSnackbar = useContext(SnackbarContext);
   const { getAuthToken } = useAuthToken();
 
   const { userId } = useParams();
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState<boolean>(true);
 
   const [user, setUser] = useState<User>();
-  const [preferenceText, setPreferenceText] = useState("");
+  const [preferenceText, setPreferenceText] = useState<string>("");
 
   const fetchUser = async () => {
     setLoading(true);
@@ -227,7 +231,7 @@ export const UserDetails = () => {
                   <Button variant="contained" onClick={parseData}>
                     {user?.id !== getAccount()?.id &&
                     getAccount()?.accessLevel === AccessLevel.Admin
-                      ? "Save as Admin"
+                      ? "Overwrite as Admin"
                       : "Save"}
                   </Button>
                 </div>
