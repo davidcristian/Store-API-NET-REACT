@@ -1,26 +1,26 @@
-import { User } from "./User";
 import { Gender } from "./Employee";
+import { User } from "./User";
 
 export enum MaritalStatus {
-    Single,
-    Married,
-    Widowed,
-    Separated,
-    Divorced,
+  Single,
+  Married,
+  Widowed,
+  Separated,
+  Divorced,
 }
 
 export interface UserProfile {
-    id?: number;
+  id?: number;
 
-    userId?: number;
-    user?: User;
+  userId?: number;
+  user?: User;
 
-    bio: string;
-    location: string;
+  bio?: string;
+  location?: string;
 
-    birthday?: string;
-    gender: Gender;
-    maritalStatus: MaritalStatus;
+  birthday?: string;
+  gender?: Gender;
+  maritalStatus?: MaritalStatus;
 
-    pagePreference?: number;
+  pagePreference?: number;
 }

@@ -8,7 +8,7 @@ namespace StoreAPI.Validators
 
         public string Validate(StoreEmployeeRoleDTO role)
         {
-            List<string> errors = new List<string>();
+            List<string> errors = new();
 
             if (role == null)
                 return "Role must not be null.";

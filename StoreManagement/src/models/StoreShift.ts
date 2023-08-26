@@ -3,15 +3,15 @@ import { Store } from "./Store";
 import { User } from "./User";
 
 export interface StoreShift {
-    startDate?: string;
-    endDate?: string;
+  startDate?: string;
+  endDate?: string;
 
-    storeId: number;
-    storeEmployeeId: number;
+  storeId: number;
+  storeEmployeeId: number;
 
-    store?: Store;
-    storeEmployee?: Employee;
+  store?: Store;
+  storeEmployee?: Employee;
 
-    userId?: number;
-    user?: User;
+  userId?: number;
+  user?: User;
 }

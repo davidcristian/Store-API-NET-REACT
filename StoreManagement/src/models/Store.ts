@@ -2,32 +2,32 @@ import { StoreShift } from "./StoreShift";
 import { User } from "./User";
 
 export enum StoreCategory {
-    General,
-    Food,
-    Clothing,
-    Electronics,
-    Furniture,
+  General,
+  Food,
+  Clothing,
+  Electronics,
+  Furniture,
 }
 
 export interface Store {
-    id?: number;
-    name: string;
-    description: string;
+  id?: number;
+  name: string;
+  description: string;
 
-    category: StoreCategory;
-    address: string;
+  category: StoreCategory;
+  address: string;
 
-    city: string;
-    state: string;
+  city: string;
+  state: string;
 
-    zipCode: string;
-    country: string;
+  zipCode: string;
+  country: string;
 
-    openDate?: string;
-    closeDate?: string;
+  openDate?: string;
+  closeDate?: string;
 
-    storeShifts?: StoreShift[];
+  storeShifts?: StoreShift[];
 
-    userId?: number;
-    user?: User;
+  userId?: number;
+  user?: User;
 }

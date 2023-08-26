@@ -140,4 +140,5 @@ GO
 SELECT TOP 10 * FROM Users
 GO
 
---DELETE FROM Users WHERE [Name] = 'd'
+SELECT * FROM [ChatMessages]
+GO

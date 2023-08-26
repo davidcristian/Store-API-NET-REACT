@@ -8,7 +8,7 @@ namespace StoreAPI.Validators
 
         public string ValidateRegister(UserRegisterDTO user)
         {
-            List<string> errors = new List<string>();
+            List<string> errors = new();
 
             if (user == null)
                 return "User must not be null.";

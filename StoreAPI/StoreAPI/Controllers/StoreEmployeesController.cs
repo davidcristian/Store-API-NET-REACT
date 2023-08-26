@@ -10,64 +10,20 @@ using StoreAPI.Models;
 using StoreAPI.Validators;
 using System.Security.Claims;
 using System.Drawing.Printing;
-using Microsoft.ML.Data;
-using Microsoft.ML;
 
 namespace StoreAPI.Controllers
 {
-    public class EmployeeInput
-    {
-        public string? Role { get; set; }
-        public int Tenure { get; set; }
-
-        [ColumnName("Label")]
-        public float Salary { get; set; }
-    }
-
-    public class EmployeeOutput
-    {
-        [ColumnName("Score")]
-        public float Salary { get; set; }
-    }
-
     [Route("api/StoreEmployees")]
     [ApiController]
     public class StoreEmployeesController : ControllerBase
     {
         private readonly StoreContext _context;
         private readonly StoreEmployeeValidator _validator;
-        private readonly PredictionEngine<EmployeeInput, EmployeeOutput> _predictionEngine;
 
         public StoreEmployeesController(StoreContext context)
         {
             _context = context;
             _validator = new StoreEmployeeValidator();
-
-            // Create MLContext
-            var mlContext = new MLContext();
-            var model = mlContext.Model.Load("ML/salary_model.zip", out _);
-
-            // Create prediction engine
-            _predictionEngine = mlContext.Model.CreatePredictionEngine<EmployeeInput, EmployeeOutput>(model);
-        }
-
-        // GET: api/StoreEmployees/predict/role=manager&tenure=365
-        [HttpGet("predict")]
-        [AllowAnonymous]
-        public ActionResult<float> Predict([FromQuery] string role, [FromQuery] int tenure)
-        {
-            // Create model input
-            var input = new EmployeeInput
-            {
-                Role = role,
-                Tenure = tenure
-            };
-
-            // Make prediction
-            var prediction = _predictionEngine.Predict(input);
-
-            // Return prediction result
-            return Ok(prediction.Salary);
         }
 
         // GET: api/StoreEmployees/count/10

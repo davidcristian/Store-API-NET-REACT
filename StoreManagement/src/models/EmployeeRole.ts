@@ -2,14 +2,14 @@ import { Employee } from "./Employee";
 import { User } from "./User";
 
 export interface EmployeeRole {
-    id?: number;
-    name: string;
-    description: string;
+  id?: number;
+  name: string;
+  description: string;
 
-    roleLevel: number;
+  roleLevel: number;
 
-    storeEmployees?: Employee[];
+  storeEmployees?: Employee[];
 
-    userId?: number;
-    user?: User;
+  userId?: number;
+  user?: User;
 }

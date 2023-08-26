@@ -33,7 +33,6 @@ namespace StoreAPI.Middleware
 
             _sockets.TryAdd(socketId, socket);
 
-            // TODO: fix join, leave message format
             // Send last 10 messages to newly connected client
             var lastMessages = _context.ChatMessages
                 .OrderByDescending(m => m.Timestamp)
@@ -60,12 +59,7 @@ namespace StoreAPI.Middleware
                     {
                         _nicknames.TryAdd(socketId, message);
                         Console.WriteLine($"Added nickname: {message} to socket {socketId}");
-                        message = $"User {message} joined the chat";
-                    }
-                    else
-                    {
-                        // Add nickname to message
-                        message = $"{_nicknames[socketId]}: {message}";
+                        message = $"joined the chat";
                     }
 
                     // Save chat message in the database
@@ -76,7 +70,8 @@ namespace StoreAPI.Middleware
                         Message = message
                     });
                     await _context.SaveChangesAsync();
-
+                    
+                    message = $"{_nicknames[socketId]}: {message}";
                     await BroadcastMessage(message, socketId);
                 }
             }

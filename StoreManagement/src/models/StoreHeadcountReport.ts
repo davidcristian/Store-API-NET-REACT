@@ -1,21 +1,21 @@
 import { StoreCategory } from "./Store";
 
 export interface StoreHeadcountReport {
-    id: number;
-    name: string;
-    description: string;
+  id: number;
+  name: string;
+  description: string;
 
-    category: StoreCategory;
-    address: string;
+  category: StoreCategory;
+  address: string;
 
-    city: string;
-    state: string;
+  city: string;
+  state: string;
 
-    zipCode: string;
-    country: string;
+  zipCode: string;
+  country: string;
 
-    openDate?: string;
-    closeDate?: string;
+  openDate?: string;
+  closeDate?: string;
 
-    headcount: number;
+  headcount: number;
 }
