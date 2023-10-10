@@ -106,17 +106,17 @@ namespace StoreAPI.Models
                 .OnDelete(DeleteBehavior.SetNull);
         }
 
-        public virtual DbSet<ConfirmationCode> ConfirmationCodes { get; set; } = null!;
-        public virtual DbSet<ChatMessage> ChatMessages { get; set; } = null!;
+        public virtual DbSet<ConfirmationCode> ConfirmationCodes { get; set; }
+        public virtual DbSet<ChatMessage> ChatMessages { get; set; }
 
-        public virtual DbSet<User> Users { get; set; } = null!;
-        public virtual DbSet<UserProfile> UserProfiles { get; set; } = null!;
+        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<UserProfile> UserProfiles { get; set; }
 
-        public virtual DbSet<StoreEmployeeRole> StoreEmployeeRoles { get; set; } = null!;
-        public virtual DbSet<StoreEmployee> StoreEmployees { get; set; } = null!;
+        public virtual DbSet<StoreEmployeeRole> StoreEmployeeRoles { get; set; }
+        public virtual DbSet<StoreEmployee> StoreEmployees { get; set; }
 
-        public virtual DbSet<Store> Stores { get; set; } = null!;
+        public virtual DbSet<Store> Stores { get; set; }
 
-        public virtual DbSet<StoreShift> StoreShifts { get; set; } = default!;
+        public virtual DbSet<StoreShift> StoreShifts { get; set; }
     }
 }

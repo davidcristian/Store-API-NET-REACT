@@ -7,7 +7,7 @@
         public virtual string? Password { get; set; }
 
         public virtual AccessLevel AccessLevel { get; set; }
-        public virtual UserProfile UserProfile { get; set; } = null!;
+        public virtual UserProfile UserProfile { get; set; }
 
         public virtual int RoleCount { get; set; }
         public virtual int EmployeeCount { get; set; }

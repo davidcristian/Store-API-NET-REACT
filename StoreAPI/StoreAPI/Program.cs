@@ -48,7 +48,7 @@ namespace StoreAPI
 
             var jwtSettingsSection = builder.Configuration.GetSection("JwtSettings");
             builder.Services.Configure<JwtSettings>(jwtSettingsSection);
-            var jwtSettings = jwtSettingsSection.Get<JwtSettings>();
+            var jwtSettings = jwtSettingsSection.Get<JwtSettings>() ?? throw new System.Exception("JwtSettings not found");
 
             builder.Services.AddAuthentication(options =>
             {
@@ -60,7 +60,7 @@ namespace StoreAPI
                 options.TokenValidationParameters = new TokenValidationParameters
                 {
                     ValidateIssuerSigningKey = true,
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(jwtSettings!.Secret)),
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(jwtSettings.Secret)),
                     ValidateIssuer = false,
                     ValidateAudience = false,
                     ValidateLifetime = true,
@@ -99,8 +99,8 @@ namespace StoreAPI
                 {
                     using (var scope = app.Services.CreateScope())
                     {
-                        var context = scope.ServiceProvider.GetService<StoreContext>();
-                        context!.Database.Migrate();
+                        var context = scope.ServiceProvider.GetService<StoreContext>() ?? throw new Exception("Database not found");
+                        context.Database.Migrate();
                         SeedData.InitializeAsync(scope.ServiceProvider).Wait();
                     }
 

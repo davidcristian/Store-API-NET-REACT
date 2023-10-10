@@ -16,6 +16,6 @@
 
         // Hidden from the API because it's not in the DTO
         public virtual AccessLevel AccessLevel { get; set; }
-        public virtual UserProfile UserProfile { get; set; } = null!;
+        public virtual UserProfile UserProfile { get; set; }
     }
 }

@@ -84,19 +84,19 @@ namespace StoreAPI.Middleware
             }
 
             // Remove the closed socket from the dictionary
-            WebSocket dummy;
-            _sockets.TryRemove(socketId, out dummy!);
+            _sockets.TryRemove(socketId, out WebSocket? dummy);
 
             // Remove the nickname of the disconnected user
-            string dummyNickname;
-            _nicknames.TryRemove(socketId, out dummyNickname!);
+            _nicknames.TryRemove(socketId, out string? dummyNickname);
         }
 
         private async Task<string> ReceiveMessage(WebSocket socket)
         {
             var buffer = new ArraySegment<byte>(new byte[4096]);
+            if (buffer.Array == null) throw new Exception("Buffer array is null");
+
             var received = await socket.ReceiveAsync(buffer, CancellationToken.None);
-            var message = Encoding.UTF8.GetString(buffer.Array!, 0, received.Count);
+            var message = Encoding.UTF8.GetString(buffer.Array, 0, received.Count);
             return message;
         }
 

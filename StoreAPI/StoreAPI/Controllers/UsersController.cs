@@ -41,13 +41,16 @@ namespace StoreAPI.Controllers
 
         private string GenerateJwtToken(User user)
         {
+            if (user.Name == null)
+                throw new ArgumentException("User name cannot be null.");
+
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes(_jwtSettings.Secret);
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(new[]
                 {
-                    new Claim(ClaimTypes.Name, user.Name!.ToString()),
+                    new Claim(ClaimTypes.Name, user.Name.ToString()),
                     
                     new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
                     new Claim(ClaimTypes.Role, user.AccessLevel.ToString()),
@@ -98,6 +101,9 @@ namespace StoreAPI.Controllers
         [AllowAnonymous]
         public async Task<ActionResult<dynamic>> Register(UserRegisterDTO userRegisterDTO)
         {
+            if (userRegisterDTO.Password == null)
+                return BadRequest("Password cannot be null.");
+
             // Validate the employee role
             var validationResult = _validator.ValidateRegister(userRegisterDTO);
             if (validationResult != string.Empty)
@@ -109,7 +115,7 @@ namespace StoreAPI.Controllers
             var user = new User
             {
                 Name = userRegisterDTO.Name,
-                Password = HashPassword(userRegisterDTO.Password!),
+                Password = HashPassword(userRegisterDTO.Password),
 
                 UserProfile = new UserProfile
                 {

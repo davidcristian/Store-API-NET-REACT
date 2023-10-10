@@ -5,7 +5,12 @@ VisualStudioVersion = 17.5.33414.496
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StoreAPI", "StoreAPI\StoreAPI.csproj", "{E529D1D4-B61E-4ED1-A295-1BD7E9F6FB24}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreAPITest", "StoreAPITest\StoreAPITest.csproj", "{32A88570-A47E-4D5E-A310-9CBD00F1C57B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StoreAPITest", "StoreAPITest\StoreAPITest.csproj", "{32A88570-A47E-4D5E-A310-9CBD00F1C57B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C768F03E-166F-467B-96B7-CD746904ADCE}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

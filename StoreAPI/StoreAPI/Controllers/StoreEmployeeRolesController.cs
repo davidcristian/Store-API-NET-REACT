@@ -166,7 +166,7 @@ namespace StoreAPI.Controllers
                 Description = employeeRoleDTO.Description,
 
                 RoleLevel = employeeRoleDTO.RoleLevel,
-                StoreEmployees = null!,
+                StoreEmployees = new List<StoreEmployee>(),
 
                 UserId = extracted.Item1,
             };
