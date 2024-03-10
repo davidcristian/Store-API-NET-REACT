@@ -1,6 +1,6 @@
 # Store Management
 
-## Description
+## Overview
 
 This project showcases a full-stack application with CRUD functionalities, entity relationships, a RESTful API, and advanced features like user authentication, role-based access, statistical reporting, and more.
 
