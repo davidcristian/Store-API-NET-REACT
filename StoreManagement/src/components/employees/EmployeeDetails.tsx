@@ -101,7 +101,7 @@ export const EmployeeDetails = () => {
               </p>
               <p>Employment Date: {formatDate(employee?.employmentDate)}</p>
               <p>Termination Date: {formatDate(employee?.terminationDate)}</p>
-              <p>Salary: {employee?.salary}</p>
+              <p>Salary: ${employee?.salary}</p>
               <p>Role: {employee?.storeEmployeeRole?.name ?? "Unknown"}</p>
               <p>Employee shifts:</p>
               {employee?.storeShifts?.length ? (

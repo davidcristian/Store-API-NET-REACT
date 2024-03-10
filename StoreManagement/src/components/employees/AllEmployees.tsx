@@ -39,7 +39,7 @@ export const AllEmployees = () => {
       prefix: "Role: ",
       render: (employee) => employee.storeEmployeeRole?.name ?? "Unknown",
     },
-    { prefix: "Salary: ", render: (employee) => employee.salary },
+    { prefix: "Salary: ", render: (employee) => `$${employee.salary}` },
     {
       prefix: "# of Shifts: ",
       render: (employee) => employee.storeShifts?.length,
