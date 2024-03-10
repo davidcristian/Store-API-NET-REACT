@@ -32,11 +32,7 @@ See the [REQUIREMETS.md](./REQUIREMENTS.md) file for more details.
 
 ### Development Setup
 
-1. Clone the repository:
-
-```bash
-git clone https://github.com/davidcristian/Store-Management-React-.NET.git
-```
+1. Clone the repository.
 
 2. Navigate to the DevOps/Docker directory and start the containers:
 
