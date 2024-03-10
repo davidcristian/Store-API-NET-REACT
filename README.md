@@ -21,6 +21,8 @@ This project showcases a full-stack application with CRUD functionalities, entit
 - Responsive SPA frontend
 - High scalability and performance optimization
 
+See the [REQUIREMETS.md](./REQUIREMENTS.md) file for more details.
+
 ## Getting Started
 
 ### Prerequisites
@@ -60,7 +62,7 @@ The Swagger API documentation page can be accessed at `http://localhost:5000` af
 
 ## Preview
 
-![Preview Image Placeholder](./Media/employees.png)
+![Employee List Preview](./Media/employees.png)
 
 ## License
 
